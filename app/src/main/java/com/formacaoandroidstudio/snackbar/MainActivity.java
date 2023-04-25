@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -24,10 +25,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 // função make recebe dois parâmetros: (1) view (2) valor da msg (3) duração da SnackBar
-                Snackbar.make(view, "Visualizando SnackBar", Snackbar.LENGTH_LONG).setAction("Confirmar", new View.OnClickListener() {
+                Snackbar.make(view, "Visualizando SnackBar", Snackbar.LENGTH_INDEFINITE).setAction("Confirmar", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         buttonAbrir.setText("Botão abrir Alterado");
+
+                        Toast.makeText(MainActivity.this, "Você clicou no botão Confirmar!", Toast.LENGTH_SHORT).show();
                     }
                 }).show();
             }
