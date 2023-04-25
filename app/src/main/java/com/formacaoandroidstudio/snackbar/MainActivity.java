@@ -24,15 +24,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                // função make recebe dois parâmetros: (1) view (2) valor da msg (3) duração da SnackBar
-                Snackbar.make(view, "Visualizando SnackBar", Snackbar.LENGTH_INDEFINITE).setAction("Confirmar", new View.OnClickListener() {
+                Snackbar snackbar = Snackbar.make(view, "Visualizando SnackBar", Snackbar.LENGTH_INDEFINITE).setAction("Confirmar", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         buttonAbrir.setText("Botão abrir Alterado");
 
                         Toast.makeText(MainActivity.this, "Você clicou no botão Confirmar!", Toast.LENGTH_SHORT).show();
                     }
-                }).show();
+                });
+
+                snackbar.show();
             }
         });
     }
