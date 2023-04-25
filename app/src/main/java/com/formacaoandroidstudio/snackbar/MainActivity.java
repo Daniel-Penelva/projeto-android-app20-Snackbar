@@ -11,7 +11,8 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button buttonAbrir;
+    private Button buttonAbrir, buttonFechar;
+    private Snackbar snackbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,12 +20,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         buttonAbrir = findViewById(R.id.buttonAbrir);
+        buttonFechar = findViewById(R.id.buttonFechar);
 
+        // Evento de click do botão abrir
         buttonAbrir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Snackbar snackbar = Snackbar.make(view, "Visualizando SnackBar", Snackbar.LENGTH_INDEFINITE).setAction("Confirmar", new View.OnClickListener() {
+                 snackbar = Snackbar.make(view, "Visualizando SnackBar", Snackbar.LENGTH_INDEFINITE).setAction("Confirmar", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         buttonAbrir.setText("Botão abrir Alterado");
@@ -33,7 +36,19 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+                 //Exibe o snackbar na tela
                 snackbar.show();
+            }
+        });
+
+        // Evento de click do botão fechar
+        buttonFechar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //encerra a snackbar
+                snackbar.dismiss();
+
+                Toast.makeText(MainActivity.this, "Você clicou no botão Fechar!", Toast.LENGTH_SHORT).show();
             }
         });
     }
