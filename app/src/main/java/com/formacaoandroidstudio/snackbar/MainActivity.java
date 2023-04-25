@@ -27,20 +27,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                 snackbar = Snackbar.make(view, "Visualizando SnackBar", Snackbar.LENGTH_INDEFINITE).setAction("Confirmar", new View.OnClickListener() {
+                 Snackbar.make(view, "Visualizando SnackBar", Snackbar.LENGTH_LONG).setAction("Confirmar", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         buttonAbrir.setText("Botão abrir Alterado");
 
                         Toast.makeText(MainActivity.this, "Você clicou no botão Confirmar!", Toast.LENGTH_SHORT).show();
                     }
-                });
-
-                 //Exibe o snackbar na tela
-                snackbar.show();
+                }).setActionTextColor(getResources().getColor(R.color.colorPrimary)).show();
             }
         });
 
+        /*
         // Evento de click do botão fechar
         buttonFechar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Você clicou no botão Fechar!", Toast.LENGTH_SHORT).show();
             }
         });
+       */
     }
 }
 
